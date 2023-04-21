@@ -1,0 +1,2 @@
+pyrogram==2.0.104
+peewee==3.16.1
