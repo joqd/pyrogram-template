@@ -1,14 +1,18 @@
-from configparser import ConfigParser
+from dotenv import load_dotenv
 from pyrogram import Client
+import os
 
-# Read configuration from config.ini file
-config = ConfigParser()
-config.read('auth.ini')
+# Load values from .env file
+load_dotenv()
 
-# Extract API credentials from the configuration
-api_id = config.get('bot', 'api_id')
-api_hash = config.get('bot', 'api_hash')
-bot_token = config.get('bot', 'bot_token')
+# Get the values of the environment variables
+api_id = os.environ.get('API_ID')
+api_hash = os.environ.get('API_HASH')
+bot_token = os.environ.get('BOT_TOKEN')
+
+# Check if the required environment variables are set
+if not api_id or not api_hash or not bot_token:
+    raise ValueError("\033[32mAPI_ID\033[0m, \033[32mAPI_HASH\033[0m, and \033[32mBOT_TOKEN\033[0m environment variables must be set")
 
 # Create a Pyrogram Client instance
 client = Client(
