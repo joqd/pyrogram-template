@@ -29,5 +29,5 @@ if __name__ == '__main__':
     with client:
         # Get the details of the bot account
         bot = client.get_me()
-        print(f"{bot.username} started")
+        print(f"\033[32m@{bot.username}\033[0m started")
     client.run()
