@@ -1,4 +1,4 @@
-python-dotenv==1.0.0
-pyrogram==2.0.104
+pyrogram
+sqlalchemy
 TgCrypto==1.2.5
-peewee==3.16.1
+python-dotenv==1.0.0
