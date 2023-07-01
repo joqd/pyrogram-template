@@ -1,19 +1,15 @@
-from sqlalchemy import create_engine
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, DateTime
+from pony import orm
 
 from datetime import datetime
 
-engine = create_engine('sqlite:///db.sqlite3')
-Base   = declarative_base()
+db = orm.Database()
+db.bind(provider='sqlite', filename='../db.sqlite3', create_db=True)
 
 
-class User(Base):
-    __tablename__ = 'users'
-    
-    id = Column(Integer, primary_key = True)
-    name = Column(String)
-    joined_at = Column(DateTime, default=datetime.now())
+class User(db.Entity):
+    id        = orm.PrimaryKey(str) # user_id, ex: 956473054
+    name      = orm.Required(str)
+    timestamp = orm.Required(datetime)
 
 
-Base.metadata.create_all(engine)
+db.generate_mapping(create_tables=True)

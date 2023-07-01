@@ -14,9 +14,8 @@ The project structure is as follows:
 ├── plugins
 │  └── entry_point.py
 ├── db
-│  ├── ext.py
-│  ├── models.py
-│  └── session_factory.py
+│  ├── do.py
+│  └── models.py
 ├── README.md
 ├── requirements.txt
 └── .env.example

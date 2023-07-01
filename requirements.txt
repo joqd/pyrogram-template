@@ -1,4 +1,4 @@
+pony
 pyrogram
-sqlalchemy
 TgCrypto==1.2.5
 python-dotenv==1.0.0
