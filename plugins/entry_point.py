@@ -1,13 +1,16 @@
 from pyrogram import Client, filters
 from pyrogram.types import Message
-from db import do
+from pony.orm import db_session
+from datetime import datetime
+import models
 
 
-
-@Client.on_message(filters.all, group=-1)
-async def gate(client: Client, message: Message):
-    if not do.get_user(message.from_user.id):
-        do.add_user(user_id=message.from_user.id, name=message.from_user.first_name)
+@Client.on_message(filters.all, group=-10)
+async def gate(_, message: Message) -> None:
+    with db_session():
+        user = models.User.get(id=str(message.from_user.id))
+        if not user:
+            models.User(id=str(message.from_user.id), joined_at=datetime.now())
 
 
 @Client.on_message(filters.command('start') & filters.private)
