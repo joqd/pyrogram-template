@@ -152,6 +152,8 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# Pyrogram stuff
+# Custom
 *.session
 *.session-journal
+
+config.yaml
