@@ -3,7 +3,7 @@ from pony import orm
 from datetime import datetime
 
 db = orm.Database()
-db.bind(provider='sqlite', filename='../db.sqlite3', create_db=True)
+db.bind(provider='sqlite', filename='db.sqlite3', create_db=True)
 
 
 class User(db.Entity):
