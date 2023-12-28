@@ -9,26 +9,21 @@ The project structure is as follows:
 
 ```
 .
-├── LICENSE
-├── main.py
+├── app.py
 ├── plugins
 │  └── entry_point.py
-├── db
-│  ├── do.py
-│  └── models.py
-├── README.md
-├── requirements.txt
-└── .env.example
+├── config.example.yaml
+└── models.py
 ```
 
 
 ## Getting Started
 
 1. Clone the repository to your local machine.
-2. Install the required dependencies using `pip` or `pipenv`, based on your preference, using the `requirements.txt` file.
-3. Copy the `.env.example` file and rename it to `.env`.
-4. Open the `.env` file and set the values for the API_ID, API_HASH, and BOT_TOKEN environment variables with your own credentials.
-5. Run the `main.py` script to start your Pyrogram bot.
+2. Install the required dependencies: `pip install -r requirements.txt`
+3. Copy the `config.example.yaml` file and rename it to `config.yaml`.
+4. Open the `config.yaml` file and set the values for the `api_id`, `api_hash`, and `bot_token` fields with your own credentials.
+5. Run the `app.py` script to start your bot.
 
 
 ## Contributing
